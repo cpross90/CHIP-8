@@ -15,12 +15,13 @@ namespace chp{
     }
 
     void chip8::cycle(){
-        if(PC == I)
+        uint16_t opcode;
+
+        if(PC == 0)
             reset();
 
-        uint16_t opcode = (memory[PC] << 8 | memory[PC + 1]);
-        
-        PC += 2;
+        opcode = memory[PC] << 8 | memory[PC + 1];
+        PC += 2
 
         decode(opcode);
 
